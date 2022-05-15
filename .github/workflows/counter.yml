@@ -40,11 +40,11 @@ jobs:
           pip install -r $(pwd)/requirements.txt
 
       - name: run py script
-        run: python $(pwd)/counter.py $(date -j -v -1d '+%Y_%m_%d') >> $(pwd)/README.md
+        run: python $(pwd)/counter.py $(date -d "yesterday" '+%Y_%m_%d') >> $(pwd)/README.md
       
       - name: commit files 
         run: |
-          git config --local useremail "gold100@prompt412.xyz"
+          git config --local user.email "gold100@prompt412.xyz"
           git config --local user.name "Gold100 bot"
           git add -A
           git commit -m "Update README.md"
