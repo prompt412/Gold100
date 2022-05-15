@@ -8,8 +8,6 @@ REPO = 'Gold100'
 BRANCH = 'main'
 TREE_URL = f'https://api.github.com/repos/{USER}/{REPO}/git/trees/{BRANCH}?recursive=1'
 
-FILENAME = re.compile('^[가-힣]+/202[0-9]_(0[1-9]|1[012])_(0[1-9]|[12][0-9]|3[01])_.+')
-
 
 def get_target_count(readme):
   counter = {}
@@ -32,8 +30,9 @@ def get_target_count(readme):
 def get_solved_count(repo_tree, start_date, end_date):
   counter = {}
 
+  filename = re.compile('^[가-힣]+/202[0-9]_(0[1-9]|1[012])_(0[1-9]|[12][0-9]|3[01])_.+')
   for file in repo_tree:
-    if not FILENAME.match(file['path']):
+    if not filename.match(file['path']):
       continue
 
     s = file['path'].split('/')
