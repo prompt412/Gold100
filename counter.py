@@ -24,6 +24,7 @@ def get_target_count(readme):
       nums = number.findall(readme[i + 1])
       counter[name] = int(nums[0]) if len(nums) >= 1 else 0
       i += 2
+    break
 
   return counter
 
