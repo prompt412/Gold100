@@ -40,7 +40,7 @@ jobs:
           pip install -r $(pwd)/requirements.txt
 
       - name: run py script
-        run: python $(pwd)/counter.py $(pwd)/README.md $(date -d "yesterday" '+%Y_%m_%d')
+        run: python $(pwd)/counter.py $(pwd)/README.md $(date '+%Y_%m_%d')
       
       - name: commit files 
         run: |
