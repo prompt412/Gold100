@@ -28,14 +28,17 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.8.9'
+          
+      - name: ls
+        run: ls -al
       
       - name: install python packages
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r ../requirements.txt
 
       - name: run py script
-        run: python counter.py $(date -j -v -1d '+%Y_%m_%d') >> README.md
+        run: python ../counter.py $(date -j -v -1d '+%Y_%m_%d') >> ../README.md
       
       - name: commit files 
         run: |
