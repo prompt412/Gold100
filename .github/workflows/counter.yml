@@ -5,7 +5,7 @@ name: solved-counter
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 15 * * 7'  # Every Sunday, 15:00 UTC (== Monday 00:00 KST)
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,10 +29,11 @@ jobs:
         with:
           python-version: '3.8.9'
           
-      - name: ls
+      - name: echo data
         run: |
           ls -al
           pwd
+          date
       
       - name: install python packages
         run: |
