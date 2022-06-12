@@ -33,3 +33,6 @@
 
 # visual studio code
 .vs
+
+# macOS
+.DS_Store
